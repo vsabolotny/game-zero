@@ -8,7 +8,11 @@ import MainButton from "../components/MainButton";
 const GameOverScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <TitleText>Bingo! </TitleText>
+      <TitleText>Bingo!</TitleText>
+      <View style={styles.textContainer}>
+        <BodyText>Number was: {props.userNumber}</BodyText>
+        <BodyText>Number of rounds: {props.roundsNumber}</BodyText>
+      </View>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
@@ -19,8 +23,6 @@ const GameOverScreen = (props) => {
           // }}
         />
       </View>
-      <BodyText>Number of rounds: {props.roundsNumber}</BodyText>
-      <BodyText>Number was: {props.userNumber}</BodyText>
       <MainButton onPress={props.onRestartGame}>NEW GAME</MainButton>
     </View>
   );
@@ -31,6 +33,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  textContainer: {
+    alignItems: "center",
+    marginTop: 20
   },
   imageContainer: {
     width: 300,
