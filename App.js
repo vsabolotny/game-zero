@@ -6,7 +6,7 @@ import AppLoading from "expo-app-loading";
 import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
-import GameOver from "./screens/GameOver";
+import GameOverScreen from "./screens/GameOverScreen";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -35,6 +35,16 @@ export default function App() {
     setUserNumber(null);
   };
 
+/** development */
+  return content = (
+    <GameOverScreen
+      userNumber={44}
+      roundsNumber={2}
+      onRestartGame={configureNewGameHandler}
+    />
+  );
+/** development */
+
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
     setGuessRounds(0);
@@ -52,7 +62,7 @@ export default function App() {
     );
   } else if (guessRounds > 0) {
     content = (
-      <GameOver
+      <GameOverScreen
         userNumber={userNumber}
         roundsNumber={guessRounds}
         onRestartGame={configureNewGameHandler}
