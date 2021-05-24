@@ -35,16 +35,6 @@ export default function App() {
     setUserNumber(null);
   };
 
-/** development */
-  return content = (
-    <GameOverScreen
-      userNumber={44}
-      roundsNumber={2}
-      onRestartGame={configureNewGameHandler}
-    />
-  );
-/** development */
-
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
     setGuessRounds(0);

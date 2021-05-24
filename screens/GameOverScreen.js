@@ -1,25 +1,27 @@
 import React from "react";
-import { View, StyleSheet, Button, Image } from "react-native";
+import { View, Text, StyleSheet, Button, Image } from "react-native";
 
 import BodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
+import MainButton from "../components/MainButton";
 
 const GameOverScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <TitleText>The Game is Over!</TitleText>
+      <TitleText>Bingo! </TitleText>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
-          //source={require("../assets/success.png")}
-          source={{
-            uri: "https://www.barrabes.com/de-de/images/blog/large/539.jpg",
-          }}
+          source={require("../assets/success.png")}
+          resizeMode="cover"
+          // source={{
+          //   uri: "https://www.barrabes.com/de-de/images/blog/large/539.jpg",
+          // }}
         />
       </View>
       <BodyText>Number of rounds: {props.roundsNumber}</BodyText>
       <BodyText>Number was: {props.userNumber}</BodyText>
-      <Button title="NEW GAME" onPress={props.onRestartGame} />
+      <MainButton onPress={props.onRestartGame}>NEW GAME</MainButton>
     </View>
   );
 };
